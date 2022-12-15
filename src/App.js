@@ -18,7 +18,7 @@ const [formData,setFormData]=useState({
 })
 
 const postUser =(newUser)=>{
- return axios.post('http://localhost:3005/api/users/add',newUser)
+ return axios.post('https://crudapi-gowtham95.onrender.com/api/users/add',newUser)
 
 
  
@@ -29,7 +29,7 @@ const postUser =(newUser)=>{
 
 useEffect(()=>{
   const getUser =()=>{
-    axios.get('http://localhost:3005/api/users')
+    axios.get('https://crudapi-gowtham95.onrender.com/api/users')
     .then((res)=>setUsers(res.data))
   }
   getUser();
@@ -37,7 +37,7 @@ useEffect(()=>{
 
 
 const putUser =(updateUser)=>{
-  axios.put('http://localhost:3005/api/users/update',updateUser)
+  axios.put('https://crudapi-gowtham95.onrender.com/api/users/update',updateUser)
 
 
  }
@@ -45,7 +45,7 @@ const putUser =(updateUser)=>{
  const deleteUser =(deleteUser)=>{
    let option =window.confirm(`are you sure you want to delete ${deleteUser.name}`)
    if(option){
-    axios.delete(`http://localhost:3005/api/users/del/${deleteUser._id}`)
+    axios.delete(`https://crudapi-gowtham95.onrender.com/api/users/del/${deleteUser._id}`)
     
 
    }
