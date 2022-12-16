@@ -39,6 +39,7 @@ const handleFormChange=(e)=>{
             // const index =users.findIndex((users)=>users.id === formData.id)
             // const newUsers =[...users]
             // newUsers[index] =updateUser;
+
             putUser(updateUser)
             setFormData(resetFormData);
 

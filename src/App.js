@@ -17,38 +17,42 @@ const [formData,setFormData]=useState({
   isEdit:0
 })
 
-const postUser =(newUser)=>{
- return axios.post('https://crudapi-gowtham95.onrender.com/api/users/add',newUser)
 
 
- 
+const getUser =async()=>{
+  await axios.get('https://crudapi-gowtham95.onrender.com/api/users')
+  .then((res)=>setUsers(res.data))
 }
 
 
-
-
 useEffect(()=>{
-  const getUser =()=>{
-    axios.get('https://crudapi-gowtham95.onrender.com/api/users')
-    .then((res)=>setUsers(res.data))
-  }
+  
   getUser();
-},[users])
+},[])
 
-
-const putUser =(updateUser)=>{
-  axios.put('https://crudapi-gowtham95.onrender.com/api/users/update',updateUser)
-
+const postUser =async(newUser)=>{
+  await axios.post('https://crudapi-gowtham95.onrender.com/api/users/add',newUser)
+  getUser()
+ 
+ }
+const putUser =async(updateUser)=>{
+  await axios.put('https://crudapi-gowtham95.onrender.com/api/users/update',updateUser)
+  getUser();
+  
+  
 
  }
 
- const deleteUser =(deleteUser)=>{
+ const deleteUser =async(deleteUser)=>{
    let option =window.confirm(`are you sure you want to delete ${deleteUser.name}`)
    if(option){
-    axios.delete(`https://crudapi-gowtham95.onrender.com/api/users/del/${deleteUser._id}`)
-    
+    await axios.delete(`https://crudapi-gowtham95.onrender.com/api/users/del/${deleteUser._id}`)
+    getUser();
+  
 
    }
+
+   
 
  }
   return (
@@ -60,6 +64,7 @@ const putUser =(updateUser)=>{
       postUser,
       putUser,
       deleteUser
+      
     }}>
       <Home/>
     </AppContext.Provider>

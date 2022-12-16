@@ -8,10 +8,10 @@ export default function Home() {
     <div>
       <div className="container">
         <div className="row">
-            <div className="col-5 mx-auto">
+            <div className="col-md-5 col-12 mx-auto">
                 <Form/>
             </div>
-            <div className="col-5 mx-auto">
+            <div className="col-md-5 col-12 mx-auto">
                 <Table/>
             </div>
         </div>
