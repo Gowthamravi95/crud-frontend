@@ -19,8 +19,8 @@ const [formData,setFormData]=useState({
 
 
 
-const getUser =async()=>{
-  await axios.get('https://crudapi-gowtham95.onrender.com/api/users')
+const getUser =()=>{
+  axios.get('https://crudapi-gowtham95.onrender.com/api/users')
   .then((res)=>setUsers(res.data))
 }
 
